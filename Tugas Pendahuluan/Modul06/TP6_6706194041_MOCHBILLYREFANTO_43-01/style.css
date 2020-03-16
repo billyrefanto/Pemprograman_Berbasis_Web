@@ -1,0 +1,58 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.judul {
+  margin-top: 10vh;
+}
+
+body {
+  background-color: aqua;
+}
+
+.konten {
+  width: 50%;
+  height: auto;
+  margin: auto;
+  background-color: blue;
+  margin-top: 2vh;
+}
+
+.search-box {
+  width: 80%;
+  margin: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.search-box input {
+  height: 7vh;
+}
+
+.hasil {
+  width: 80%;
+  margin: auto;
+}
+
+.hasil ol {
+  border-radius: unset;
+}
+
+.hasil li {
+  color: black;
+}
+
+.item {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+
+.atur {
+  margin-left: 10px;
+  padding-right: 8px;
+}
+
+.deleteAll {
+  margin-top: -81px;
+}

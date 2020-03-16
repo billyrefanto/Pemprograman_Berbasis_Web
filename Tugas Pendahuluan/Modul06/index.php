@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP MOdul 05</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.js"></script>
+    <title>To Do List</title>
 </head>
 <body>
-<h1>Data Mahasiswa</h1>
-<button class="tampilan">Tampilan Data</button>
-<div class="lihatData"></div>
+<h1>To Do List</h1>
+    <table>
+        <tr>
+            <td>List</td>   
+            <td>:</td>
+            <td><input type="text" placeholder="masukan data" name="todo" id="list"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td><button id="button">submit</button></td>
+        </tr>
+    </table>
+    <ul id="lihat">
+    </ul>
 
-<script>
-    $('.tampilan').click(tampilData);
-
-    function tampilData(){
-        $.ajax({
-            type : "GET",
-            url : 'tampil.php',
-            success : function(){
-                $('.lihatData').load('tampil.php');
-            }
-        });
-    }
-</script>
+<script src="jquery.js"></script>
 </body>
 </html>

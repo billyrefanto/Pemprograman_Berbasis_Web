@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!--
+		// ===========================================================================
+		// Quest 1. Change Title
+		// pada quest 1 ini kalian harus mengganti title pada halaman ini menjadi
+		// Jurnal | nim kalian.
+		// ===========================================================================
+	-->
+    <title>Jurnal | 6706194053</title>
+    <link rel="stylesheet" type="text/css" href="./assets/css/w3.css" />
+    <link rel="stylesheet" type="text/css" href="./assets/css/main.css" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./assets/fonts/font-awesome.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="mainContainer desktop">
+      <div class="w3-padding">
+        <div class="w3-row">
+          <div class="w3-col m12">
+            <!--
+						// ===========================================================================
+						// PENILAIAN 
+						// Pada halaman ini silahkan anda berikan attribute pada tag - tag form dibawah ini
+						// 1. tag form berikan id formInput
+						// 2. title input text berikan id titleInput
+						// 3. description textarea berikan id descriptionInput
+						// 4. cover input file berikan id coverInput
+						// 5. pada button berikan onclick inputForm()
+						// ===========================================================================
+					-->
+            <!-- => FORM INPUT
+						Component ini berfungsi untuk menginputkan sesuatu ke database.
+					-->
+            <form
+              class="w3-margin w3-card w3-padding w3-padding-16 w3-text-grey"
+              role="form"
+              id="formInput"
+            >
+              <section class="w3-row w3-margin-bottom">
+                <label for="titleInput">Title</label>
+                <input
+                  type="text"
+                  placeholder="Input Title"
+                  id="titleInput"
+                  class="w3-input w3-border w3-round"
+                />
+              </section>
+              <section class="w3-row w3-margin-bottom">
+                <label for="descriptionInput">Description</label>
+                <textarea
+                  placeholder="Input Description"
+                  id="descriptionInput"
+                  class="w3-input w3-border w3-round"
+                ></textarea>
+              </section>
+              <section class="w3-row w3-margin-bottom">
+                <label for="coverInput">Cover</label>
+                <input
+                  type="file"
+                  placeholder="Input Cover"
+                  id="coverInput"
+                  class="w3-input w3-border w3-round"
+                />
+              </section>
+              <section class="w3-row w3-border-top">
+                <button
+                  type="button"
+                  onclick="inputForm()"
+                  class="w3-margin-top w3-button w3-border w3-border-blue w3-white w3-hover-blue w3-text-blue w3-round"
+                >
+                  Send <i class="fa fa-send"></i>
+                </button>
+              </section>
+            </form>
+          </div>
+          <div class="w3-col m12">
+            <!-- => DISPLAY INPUT
+						Component ini berfungsi untuk menampilkan list dari database.
+					-->
+            <div id="display" class="w3-margin"></div>
+            <!-- => DISPLAY INPUT
+						Component ini berfungsi untuk menampilkan list dari database.
+					-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript">
+      // AJAX FUNCTION
+      function ajax(request, response) {
+        // ==> DECLARATION VARIABLE AJAX
+        let xmlhttp;
+
+        // ==> CHECK COMPATIBILITY BROWSER AND INITIALIZATION VARIABLE AJAX
+        if (window.XMLHttpRequest) {
+          xmlhttp = new XMLHttpRequest();
+        } else {
+          xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        // ==> CHECK AVAIBLE REQUEST AND GET THE RESPONSE
+        xmlhttp.onload = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            // IF SUCCESS
+            response(this.responseText);
+          } else {
+            // IF NOT SUCCESS
+            alert("Gagal Request!");
+          }
+        };
+
+        // ==> OPEN SESSION TO SEND DATA
+        xmlhttp.open("POST", request.url);
+        // alert(request.data)
+        xmlhttp.send(request.data);
+      }
+
+      function inputForm() {
+        // ==> DECLARATION VARIABLE
+        let titleInput, descriptionInput, coverInput;
+        let formData, request, formInput;
+
+        //=============================
+        //Lengkapi Kode Input disini
+        //=============================
+        titleInput = document.getElementById("titleInput");
+        descriptionInput = document.getElementById("descriptionInput");
+        coverInput = document.getElementById("coverInput");
+        formInput = document.getElementById("formInput");
+        formData = new FormData();
+
+        // ==> VALIDATE
+        if (titleInput.value == "" || coverInput == "") {
+          alert("Harap isi seluruh form yang ada");
+          return;
+        } else {
+          // ==> PREPARATION FOR REQUEST
+          coverInput = coverInput.files[0];
+          formData.append("action", "insert");
+          formData.append("title", titleInput.value);
+          formData.append("description", descriptionInput.value);
+          formData.append("cover", coverInput, coverInput.name);
+          request = {
+            url: "../server/proses.php",
+            data: formData
+          };
+        }
+        ajax(request, function(response) {
+          if (response == "200") {
+            alert("Berhasil menginput data");
+            formInput.reset();
+          } else {
+            alert("Gagal menginput data");
+          }
+        });
+      }
+
+      // GET DATA
+      function getData() {
+        let formData = new FormData();
+        // ===========================================================================
+        // PENILAIAN TEST JURNAL
+        // Pada halaman ini silahkan anda tangkap response dari server dan masukkan
+        // kedalam tag yang idnya display.
+        // gunakan document.getElementById('namaIdnya').innerHTML = resenponnya dari server.
+        // ===========================================================================
+
+        // lengkapi kode getData disini
+        formData.append("action", "select");
+        let request = {
+          url: "../server/proses.php",
+          data: formData
+        };
+
+        ajax(request, function(response) {
+          document.getElementById("display").innerHTML = response;
+        });
+      }
+      let getDataRealTime = setInterval(getData, 1000);
+    </script>
+  </body>
+</html>

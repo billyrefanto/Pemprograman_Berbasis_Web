@@ -1,0 +1,17 @@
+[
+    {
+        "title": "About Me - Moch Billy Refanto",
+        "description": "Saya adalah mahasiswa telkom university fakultas Ilmu Terapan prodi D3 Teknik Informatika",
+        "cover": "20200316-152033mochbillyrefanto.png"
+    },
+    {
+        "title": "Indonesia open to help from Singapore: President Joko",
+        "description": "Indonesia open to help from Singapore to fight coronavirus outbreak: President Joko He added: \"If they want to help us, we will accept it.\"\n\nMeanwhile, Singapore has donated safety equipment and ventilators to hospitals in Batam in order to support treatment of patients with Covid-19.\n\nLast Friday, the Singaporean Consul-General in Batam, Mr Mark Low, handed over 50 hazmat suits and two ventilators to Batam Mayor Muhammad Rudi as the city is tackling a rising number of infections.\n\nIndonesia has confirmed 134 cases and recorded five deaths caused by Covid-19 as of Monday.",
+        "cover": "20200316-152718yq-jokowidodo-160032022.jpg"
+    },
+    {
+        "title": "Responsive Web Design",
+        "description": "Responsive Web Design adalah suatu keadaan sebuah halaman web dimana tampilannya akan cocok, rapi dan tetap enak dilihat jika diakses dari perangkat apapun dengan resolusi layar yang berbeda. Misalnya, ketika anda mengakses blog ini dengan perangkat (PC\/HP\/Tablet) yang berbeda, anda akan melihat tampilannya berbeda karena menyesuaika dengan layar. Secara umum, sebuah halaman web tidak bisa menyesuaikan tampilannya sendiri dengan resolusi layar perangkat yang mengaksesnya.\n\n\nSecara singkat itulah arti dari desain web responsif. Responsive Design dikembangkan karena boomingnya teknologi smartphone dan Tablet PC dengan berbagai resolusi Layar. Dengan adanya teknologi ini, sebuah halaman web dapat diakses dengan perangkat apapun tanpa kehilangan fungsi-fungsi yang disediakannya.",
+        "cover": "20200316-153026responsive-web-design.jpg"
+    }
+]
